@@ -69,6 +69,9 @@ class Yaourt(dotbot.Plugin):
         cmd = 'LANG=en_US.UTF-8 yaourt --needed --noconfirm -S {}'.format(pkg)
 
         self._log.info("Installing \"{}\". Please wait...".format(pkg))
+        
+        # needed to avoid conflicts due to locking
+        time.sleep(1)
 
         proc = subprocess.Popen(cmd, shell=True,
                 stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
