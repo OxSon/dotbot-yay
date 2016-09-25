@@ -1,4 +1,4 @@
-import os, subprocess, dotbot
+import os, subprocess, dotbot, time
 from enum import Enum
 
 class PkgStatus(Enum):
