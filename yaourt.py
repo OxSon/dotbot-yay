@@ -69,7 +69,7 @@ class Yaourt(dotbot.Plugin):
         cmd = 'LANG=en_US.UTF-8 yaourt --needed --noconfirm -S {}'.format(pkg)
 
         self._log.info("Installing \"{}\". Please wait...".format(pkg))
-        
+
         # needed to avoid conflicts due to locking
         time.sleep(1)
 
@@ -82,5 +82,5 @@ class Yaourt(dotbot.Plugin):
             if out.decode("utf-8").find(self._strings[item]) >= 0:
                 return item
 
-        self._log.warn("Could not determine what happened with package {}".format(pkg))
+        self._log.warning("Could not determine what happened with package {}".format(pkg))
         return PkgStatus.NOT_SURE
