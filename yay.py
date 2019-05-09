@@ -9,11 +9,11 @@ class PkgStatus(Enum):
     ERROR = "Build Error"
     NOT_SURE = 'Could not determine'
 
-class Yaourt(dotbot.Plugin):
-    _directive = 'yaourt'
+class Yay(dotbot.Plugin):
+    _directive = 'yay'
 
     def __init__(self, context):
-        super(Yaourt, self).__init__(self)
+        super(Yay, self).__init__(self)
         self._context = context
         self._strings = {}
 
@@ -28,12 +28,12 @@ class Yaourt(dotbot.Plugin):
 
     def handle(self, directive, data):
         if directive != self._directive:
-            raise ValueError('Yaourt cannot handle directive %s' %
+            raise ValueError('Yay cannot handle directive %s' %
                 directive)
         return self._process(data)
 
     def _process(self, packages):
-        defaults = self._context.defaults().get('yaourt', {})
+        defaults = self._context.defaults().get('yay', {})
         results = {}
         successful = [PkgStatus.UP_TO_DATE, PkgStatus.INSTALLED]
 
@@ -66,7 +66,7 @@ class Yaourt(dotbot.Plugin):
     def _install(self, pkg):
         # to have a unified string which we can query
         # we need to execute the command with LANG=en_US.UTF-8
-        cmd = 'LANG=en_US.UTF-8 yaourt --needed --noconfirm -S {}'.format(pkg)
+        cmd = 'LANG=en_US.UTF-8 yay --needed --noconfirm -S {}'.format(pkg)
 
         self._log.info("Installing \"{}\". Please wait...".format(pkg))
 
