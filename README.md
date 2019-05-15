@@ -17,15 +17,16 @@ git submodule add https://github.com/oxson/dotbot-yay
 
 The original author also recommends having your yay list in a separate file
 since dotbot will need root privileges in order to use the plugin.
-Using the plugin should look something like this:
+
+If you use the default install script provided by [dotbot](https://github.com/anishathalye/dotbot), using the plugin will look like this:
 
 ```bash
-./install -p dotbot-yay/yay.py -c packages.conf.yaml
+./dotbot/bin/dotbot -p dotbot-yay/yay.py -c packages.conf.yaml
 ```
 
-I found that I needed to do this for reasons unknown (should theoretically be the same thing):
+Using the `install` script provided by this repo, using the plugin will look like this:
 ```bash
-dotbot/bin/dotbot -p dotbot-yay/yay.py -c packages.conf.yaml
+./install packages
 ```
 
 Example for `packages.conf.yaml`:
