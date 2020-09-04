@@ -1,7 +1,7 @@
 # Dotbot yay Plugin
 
 For use with [dotbot](https://github.com/anishathalye/dotbot),
-this plugin allows one to easily install or upgrade a list of yaourt packages.
+this plugin allows one to easily install or upgrade a list of yay packages.
 
 This plugin is a port of [dotbot-yaourt](https://github.com/niklas-heer/dotbot-yaourt) for use with `yay`. Basically the same thing with a `:%s/yaourt/yay` command ran, plus a couple other changes in this readme.
 
