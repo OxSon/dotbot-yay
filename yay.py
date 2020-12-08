@@ -18,10 +18,10 @@ class Yay(dotbot.Plugin):
         self._strings = {}
 
         # Names to search the query string for
-        self._strings[PkgStatus.UP_TO_DATE] = "there is nothing to do"
-        self._strings[PkgStatus.INSTALLED] = "Optional dependencies for"
-        self._strings[PkgStatus.NOT_FOUND] = "target not found"
-        self._strings[PkgStatus.ERROR] = "==> ERROR:"
+        self._strings[PkgStatus.UP_TO_DATE] = "is up to date -- skipping"
+        self._strings[PkgStatus.UPDATED] = "Net Upgrade Size"
+        self._strings[PkgStatus.NOT_FOUND] = "Could not find all required packages"
+        self._strings[PkgStatus.ERROR] = "aborting"
 
     def can_handle(self, directive):
         return directive == self._directive
