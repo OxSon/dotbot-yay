@@ -19,12 +19,11 @@ class Yay(dotbot.Plugin):
         self._strings = {}
 
         # Names to search the query string for
-        self._strings[PkgStatus.UP_TO_DATE] = "is up to date -- skipping"
-        self._strings[PkgStatus.INSTALLED] = "Total Installed Size:"
-        self._strings[PkgStatus.UPDATED] = "Net Upgrade Size:"
-        self._strings[PkgStatus.NOT_FOUND] = "Could not find all required packages"
         self._strings[PkgStatus.ERROR] = "aborting"
-
+        self._strings[PkgStatus.NOT_FOUND] = "Could not find all required packages"
+        self._strings[PkgStatus.UPDATED] = "Net Upgrade Size:"
+        self._strings[PkgStatus.INSTALLED] = "Total Installed Size:"
+        self._strings[PkgStatus.UP_TO_DATE] = "is up to date -- skipping"
 
     def can_handle(self, directive):
         return directive == self._directive
