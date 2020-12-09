@@ -4,9 +4,10 @@ from enum import Enum
 class PkgStatus(Enum):
     # These names will be displayed
     UP_TO_DATE = 'Up to date'
-    INSTALLED = 'Installed'
+    INSTALLED= 'Installed'
+    UPDATED = 'Updated'
     NOT_FOUND = 'Not Found'
-    ERROR = "Build Error"
+    ERROR = "Error"
     NOT_SURE = 'Could not determine'
 
 class Yay(dotbot.Plugin):
@@ -18,10 +19,11 @@ class Yay(dotbot.Plugin):
         self._strings = {}
 
         # Names to search the query string for
-        self._strings[PkgStatus.UP_TO_DATE] = "there is nothing to do"
-        self._strings[PkgStatus.INSTALLED] = "Optional dependencies for"
-        self._strings[PkgStatus.NOT_FOUND] = "target not found"
-        self._strings[PkgStatus.ERROR] = "==> ERROR:"
+        self._strings[PkgStatus.ERROR] = "aborting"
+        self._strings[PkgStatus.NOT_FOUND] = "Could not find all required packages"
+        self._strings[PkgStatus.UPDATED] = "Net Upgrade Size:"
+        self._strings[PkgStatus.INSTALLED] = "Total Installed Size:"
+        self._strings[PkgStatus.UP_TO_DATE] = "is up to date -- skipping"
 
     def can_handle(self, directive):
         return directive == self._directive
@@ -35,7 +37,7 @@ class Yay(dotbot.Plugin):
     def _process(self, packages):
         defaults = self._context.defaults().get('yay', {})
         results = {}
-        successful = [PkgStatus.UP_TO_DATE, PkgStatus.INSTALLED]
+        successful = [PkgStatus.UP_TO_DATE, PkgStatus.UPDATED, PkgStatus.INSTALLED]
 
         for pkg in packages:
             if isinstance(pkg, dict):
