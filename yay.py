@@ -67,7 +67,7 @@ class Yay(dotbot.Plugin):
 
     def _install(self, pkg):
         # to have a unified string which we can query
-        # we need to execute the command with LANG=en_US.UTF-8
+        # we need to execute the command with LANG=en_US
         cmd = 'LANG=en_US yay --needed --noconfirm -S {}'.format(pkg)
 
         self._log.info("Installing \"{}\". Please wait...".format(pkg))
