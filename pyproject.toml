@@ -5,7 +5,10 @@ description = ""
 readme = "README.md"
 packages = [{include = "yay.py"}]
 maintainers = ["Alec Millis <theoxson@gmail.com>"]
-authors = ["Alec Millis <theoxson@gmail.com>", "Bjørn Snoen <bjorn.snoen@gmail.com>"]
+authors = [
+    "Alec Millis <theoxson@gmail.com>",
+    "Bjørn Polat-Snoen <bjorn.snoen@gmail.com>"
+]
 
 [tool.poetry.dependencies]
 python = "^3.6"
