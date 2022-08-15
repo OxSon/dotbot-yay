@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "dotbot-yay"
+version = "1.0.1"
+description = ""
+readme = "README.md"
+packages = [{include = "yay.py"}]
+maintainers = ["Alec Millis <theoxson@gmail.com>"]
+authors = [
+    "Alec Millis <theoxson@gmail.com>",
+    "Bjørn Polat-Snoen <bjorn.snoen@gmail.com>"
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+
+[tool.poetry.group.dev.dependencies]
+dotbot = "^1.19.0"
